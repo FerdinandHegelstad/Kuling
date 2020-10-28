@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="40dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="0dp"
+    app:cardElevation="0dp"
+    android:layout_marginTop="@dimen/side_margin"
+    android:layout_marginBottom="@dimen/side_margin">
+    
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/longTerm_day_of_week_container"
+                android:layout_width="85dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toStartOf="parent">
+                
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/longTerm_forecast_text_day_of_week"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </com.google.android.material.textview.MaterialTextView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/longTerm_forecast_container"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                app:layout_constraintStart_toEndOf="@+id/longTerm_day_of_week_container"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/longTerm_forecast_container_one"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/longterm_forecast_wind_color_margin"
+                        android:paddingEnd="@dimen/longterm_forecast_wind_color_margin"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:id="@+id/longTerm_forecast_wind_color_one"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/longterm_color_height"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:background="@color/colorWindGood">
+                        </View>
+                        
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@id/longTerm_forecast_wind_color_one"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/longterm_forecast_symbol_one"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:src="@drawable/partlycloudy_day"
+                                android:layout_weight="1">
+
+                            </androidx.appcompat.widget.AppCompatImageView>
+                            
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/longterm_forecast_text_temperature_one"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/longterm_forecast_text_size_temperature"
+                                android:gravity="center">
+
+                            </com.google.android.material.textview.MaterialTextView>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/longTerm_forecast_container_two"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/longterm_forecast_wind_color_margin"
+                        android:paddingEnd="@dimen/longterm_forecast_wind_color_margin"
+                        app:layout_constraintStart_toEndOf="@+id/longTerm_forecast_container_one"
+                        android:layout_weight="1">
+
+                        <View
+                            android:id="@+id/longTerm_forecast_wind_color_two"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/longterm_color_height"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:background="@color/colorWindHigh">
+                        </View>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@id/longTerm_forecast_wind_color_two"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/longterm_forecast_symbol_two"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:src="@drawable/partlycloudy_day"
+                                android:layout_weight="1">
+
+                            </androidx.appcompat.widget.AppCompatImageView>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/longterm_forecast_text_temperature_two"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/longterm_forecast_text_size_temperature"
+                                android:gravity="center"
+                                >
+
+                            </com.google.android.material.textview.MaterialTextView>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/longTerm_forecast_container_three"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/longterm_forecast_wind_color_margin"
+                        android:paddingEnd="@dimen/longterm_forecast_wind_color_margin"
+                        app:layout_constraintStart_toEndOf="@+id/longTerm_forecast_container_two"
+                        android:layout_weight="1">
+
+                        <View
+                            android:id="@+id/longTerm_forecast_wind_color_three"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/longterm_color_height"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:background="@color/colorWindGood">
+                        </View>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@id/longTerm_forecast_wind_color_three"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/longterm_forecast_symbol_three"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:src="@drawable/partlycloudy_day"
+                                android:layout_weight="1">
+
+                            </androidx.appcompat.widget.AppCompatImageView>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/longterm_forecast_text_temperature_three"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/longterm_forecast_text_size_temperature"
+                                android:gravity="center"
+                                >
+
+                            </com.google.android.material.textview.MaterialTextView>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/longTerm_forecast_container_four"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:paddingStart="@dimen/longterm_forecast_wind_color_margin"
+                        android:paddingEnd="@dimen/longterm_forecast_wind_color_margin"
+                        app:layout_constraintStart_toEndOf="@+id/longTerm_forecast_container_three"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:layout_weight="1">
+
+                        <View
+                            android:id="@+id/longTerm_forecast_wind_color_four"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/longterm_color_height"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            android:background="@color/colorWindLow">
+                        </View>
+
+                        <androidx.appcompat.widget.LinearLayoutCompat
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@id/longTerm_forecast_wind_color_four"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            >
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/longterm_forecast_symbol_four"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                android:src="@drawable/partlycloudy_day"
+                                android:layout_weight="1">
+
+                            </androidx.appcompat.widget.AppCompatImageView>
+
+                            <com.google.android.material.textview.MaterialTextView
+                                android:id="@+id/longterm_forecast_text_temperature_four"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_weight="1"
+                                android:textSize="@dimen/longterm_forecast_text_size_temperature"
+                                android:gravity="center"
+                                >
+
+                            </com.google.android.material.textview.MaterialTextView>
+
+                        </androidx.appcompat.widget.LinearLayoutCompat>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</com.google.android.material.card.MaterialCardView>
+
+
+
+

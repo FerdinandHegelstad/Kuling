@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE resources [
+    <!ENTITY appname "Kuling">
+    ]>
+
+<resources>
+    <string name="app_name">&appname;</string>
+    <string name="main_activity_text">Make the right kiting decisions</string>
+    <string name="main_activity_button_text">Start</string>
+    <string name="location_chooser_activity_title">Favoritter</string>
+    <string name="location_chooser_activity_subtitle">Hvor vil du kite?</string>
+    <string name="location_viewer_activity_placeholder_location_name">Stedsnavn</string>
+    <string name="weather_data_url">"https://in2000-apiproxy.ifi.uio.no/weatherapi/locationforecast/2.0/"</string>
+    <string name="location_search_fragment_search_hint">Søk etter steder å kite</string>
+    <string name="accessibilty_location_search_cardview_favourites_desc">Favourite-star not filled</string>
+    <string name="location_viewer_activity_hour_forecast_title">Værvarsel de neste 24 timene</string>
+    <string name="location_viewer_activity_hour_text">Tid</string>
+    <string name="location_viewer_activity_wind_direction_text">Vindretning</string>
+    <string name="location_viewer_activity_wind_speed_text">Vindstyrke\nm/s</string>
+    <string name="location_viewer_activity_wind_gusts_text">Vindkast\nm/s</string>
+    <string name="user_preferences_activity_main_text">Hvilke vindforhold foretrekker du?</string>
+    <string name="user_preferences_activity_wind_speed_desc">Vindstyrke</string>
+    <string name="user_preferences_activity_gust_speed_desc">Vindkast</string>
+    <string name="location_cardview_wind_speed">Vindstyrke</string>
+    <string name="location_cardview_wind_gusts">Vindkast</string>
+    <string name="location_cardview_today">I dag</string>
+    <string name="user_preferences_activity_speed_ms_desc">12 – 14 m/s</string>
+    <string name="user_preferences_activity_text_apply">Bruk</string>
+    <string name="user_preferences_activity_text_default_settings">Bruk standard</string>
+    <string name="shared_preferences_preferences_file_name">com.example.team22.user_preferences</string>
+    <string name="user_preferences_activity_mediocre">Middel</string>
+    <string name="user_preferences_activity_perfect">Perfekt</string>
+    <string name="user_preferences_activity_difficult">Vanskelig</string>
+    <string name="user_preferences_activity_mediocre_desc">Lavere enn dine innstillinger.</string>
+    <string name="user_preferences_activity_perfect_desc">Dine innstillinger.</string>
+    <string name="user_preferences_activity_difficult_desc">Høyere enn dine innstillinger.</string>
+    <string name="user_preferences_activity_default_desc">Standard vindstyrke er 7–10 m/s,\nog vindkast er 9–12 m/s.</string>
+    <string name="explore_text_view_switch_button_desc">Sorter på avstand</string>
+    <string name="kilometresdefault">2km</string>
+    <string name="wind_speed">Vindstyrke</string>
+    <string name="wind_gusts">Vindkast</string>
+    <string name="default_settings_windspeed">7–10 m/s</string>
+    <string name="default_settings_gust">9–12 m/s</string>
+    <string name="card_view_location_image">location_image</string>
+    <string name="navigation_activity_loading_location_text">Laster lokasjoner…</string>
+    <string name="navigation_activity_loading_forecast_text">Henter værdata…</string>
+    <string name="navigation_activity_loading_distance_text">Henter avstander…</string>
+    <string name="navigation_activity_bottom_bar_favourites">Favoritter</string>
+    <string name="navigation_activity_bottom_bar_map">Kart</string>
+    <string name="navigation_activity_bottom_bar_explore">Utforsk</string>
+    <string name="navigation_activity_bottom_bar_settings">Innstillinger</string>
+    <string name="location_viewer_activity_longterm_forecast_title">Vindstyrke de neste 7 dagene</string>
+    <string name="longterm_forecast_time_morning">02–08</string>
+    <string name="longterm_forecast_time_midday">08–14</string>
+    <string name="longterm_forecast_time_afternoon">14–20</string>
+    <string name="longterm_forecast_time_night">20–02</string>
+    <string name="location_distance_away">km unna</string>
+    <string name="language_code_iso_639">nb</string>
+    <string name="kilometer_value">km</string>
+    <string name="temperature_degrees">%1$s°</string>
+    <string name="explore_fragment_no_search_result">Fant ingen resultater for \"%1$s\"</string>
+    <string name="user_preferences_slider_desc">Dra sliderne for å registrere hvilke vindforhold du ønsker å kite under. Husk å ta hensyn til utstyr, erfaringsnivå og kroppsvekt.</string>
+    <string name="user_preferences_default_desc">Anbefalte innstillinger for nybegynnere er:</string>
+    <string name="my_permissions">Mine tillatelser</string>
+    <string name="allow_permissions">Posisjonstillatelse: AV</string>
+    <string name="disallow_permissions">Posisjonstillatelse: PÅ</string>
+    <string name="permissions_desc_on">Ved å dele din posisjon kan &appname; måle avstanden mellom deg og kite-destinasjoner.</string>
+    <string name="permissions_desc_on_link"><u>Klikk her for å slå av posisjonsdeling.</u></string>
+    <string name="permissions_desc_off">&appname; har ikke tillatelse til å lese din posisjon. &appname; kan ikke måle avstanden mellom deg og kite-destinasjoner.</string>
+    <string name="permissions_desc_off_link"><u>Klikk her for slå på posisjonsdeling.</u></string>
+    <string name="favourite_fragment_no_favourites_title">Ingen favoritter lagret</string>
+    <string name="favourite_fragment_no_favourites_text">Besøk Utforsk eller Kart for å finne kitesteder.  Klikk på ♥ for å lagre som favoritt!</string>
+    <string name="my_weather_preferences">Mine vær-preferanser</string>
+    <string name="about">Om &appname;</string>
+    <string name="about_desc">&appname; er en app utviklet for å bistå kitere i å ta raske og presise valg om når og hvor de skal kite. &appname; presenterer værdata på ulike kitelokasjoner i Norge på en oversiktlig måte slik at kitere kan tolke værdata korrekt. Appen tillater kitere å registrere mengde vind og vindkast de tåler basert på erfaringsnivå, utstyr og kroppsvekt.
+&appname; ble utviklet i 2020 av Alexandra Langeland, Brynjard B. Misvær, Ferdinand Hegelstad, Håkon Hernes og Sigrid M. Krishnan.</string>
+    <string name="privacy">Personvern</string>
+    <string name="privacy_desc">Dette er informasjon som handler om hvordan &appname; henter og behandler din informasjon:\n\n&appname; innhenter værdata fra Metrologiske Institutt. Dette gjøres gjennom Institutt for Informatikk sin proxy-server, og informasjonen du deler knyttes ikke opp til person eller enhet. Dersom du gir &appname; tilgang til din posisjon vil applikasjonen kun bruke din enhets plassering for å måle avstanden mellom deg og kitedestinasjoner. Din lokasjonsdata blir ikke lagret, og anvendes kun når applikasjonen er i bruk.\n\n&appname; bruker også Google Maps for å tilby karttjenester. Informasjon om hvordan Google Maps behandler din personvern kan du lese her: https://developers.google.com/maps/terms-20180207
+</string>
+    <string name="restart_message"> Appen må kanskje startes på nytt for at endringene skal tre i kraft</string>
+    <string name="timePeriod">%1$s \- %2$s</string>
+    <string name="failed_weather_data_fetch_message">Kunne ikke hente værdata</string>
+    <string name="failed_location_data_fetch_message">Kunne ikke laste kitedestinasjoner</string>
+    <string name="saved_preferences_feedback">Dine preferanser ble lagret.</string>
+    <string name="settings_icon_desc">Mann som kiter på vann</string>
+    <string name="retry_button"><u>Prøv igjen</u></string>
+    <string name="settings_img_content_desc">Sort-hvitt bilde av mann som kiter på vann med en hånd.</string>
+</resources>

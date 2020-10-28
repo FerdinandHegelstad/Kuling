@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:layout_height="220dp"
+    android:layout_width="@dimen/hour_by_hour_size"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_gravity="center_horizontal"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    app:cardPreventCornerOverlap="false"
+    app:cardElevation="0dp"
+    app:cardCornerRadius="0dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/location_viewer_textview_hourbyhour_hour"
+            android:layout_width="match_parent"
+            android:layout_height="20dp"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/location_viewer_imageview_hourbyhour_winddirection"
+            android:layout_width="@dimen/hour_by_hour_size"
+            android:layout_height="@dimen/hour_by_hour_size"
+            app:layout_constraintTop_toBottomOf="@id/location_viewer_textview_hourbyhour_hour"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:scaleType="center"
+            android:src="@drawable/ic_wind_arrow"
+            />
+
+        <TextView
+            android:id="@+id/location_cardview_wind6"
+            android:layout_width="@dimen/hour_by_hour_size"
+            android:layout_height="@dimen/hour_by_hour_size"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            android:textColor="@color/colorBlack"
+            app:layout_constraintTop_toBottomOf="@+id/location_viewer_imageview_hourbyhour_winddirection"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/location_viewer_textview_hourbyhour_windgust"
+            android:layout_width="@dimen/hour_by_hour_size"
+            android:layout_height="@dimen/hour_by_hour_size"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/location_cardview_wind6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/location_viewer_imageview_hourbyhour_weathersymbol"
+            android:layout_width="@dimen/hour_by_hour_size"
+            android:layout_height="@dimen/hour_by_hour_size"
+            android:foregroundGravity="center"
+            app:layout_constraintTop_toBottomOf="@id/location_viewer_textview_hourbyhour_windgust"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/location_viewer_textview_hourbyhour_temperature"
+            android:layout_width="@dimen/hour_by_hour_size"
+            android:layout_height="@dimen/hour_by_hour_size"
+            android:gravity="center"
+            android:textAlignment="center"
+            android:textSize="12sp"
+            app:layout_constraintTop_toBottomOf="@+id/location_viewer_imageview_hourbyhour_weathersymbol"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</com.google.android.material.card.MaterialCardView>

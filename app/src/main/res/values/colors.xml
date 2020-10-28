@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorBlue">#2F72E1</color>
+    <color name="colorBlueDark">#1F2F98</color>
+    <color name="colorPurple">#787FF6</color>
+    <color name="colorLightTeal">#4ADEDE</color>
+    <color name="colorTeal">#7BD5F5</color>
+    <color name ="colorWhite">#E7E7E7</color>
+    <color name ="colorWindGood">#ADDDB8</color>
+    <color name ="colorWindLow">#F8DE4E</color>
+    <color name ="colorWindHigh">#F97D48</color>
+    <color name ="colorBlack">#000000</color>
+    <color name="colorIndicatorGreen">#33A853</color>
+    <color name="colorIndicatorRed">#EA4335</color>
+    <color name="colorIndicatorYellow">#FBBC03</color>
+    <color name="colorGray">#878787</color>
+    <color name="colorDisabledIndicator">#e7e7e7</color>
+    <color name="lineGrey">#c2c2c2</color>
+    <color name="textGrey">#5f6368</color>
+</resources>

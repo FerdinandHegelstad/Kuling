@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="preloaded_fonts" translatable="false">
+        <item>@font/aguafina_script</item>
+        <item>@font/berkshire_swash</item>
+        <item>@font/boogaloo</item>
+        <item>@font/kavoon</item>
+        <item>@font/lato_bold</item>
+        <item>@font/lato_thin</item>
+        <item>@font/mrs_sheppards</item>
+        <item>@font/nunito</item>
+        <item>@font/nunito_bold</item>
+
+        <item>@font/roboto_thin</item>
+        <item>@font/spicy_rice</item>
+        <item>@font/supermercado_one</item>
+        <item>@font/yellowtail</item>
+    </array>
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="hour_by_hour_size">40dp</dimen>
+    <dimen name="side_margin">8dp</dimen>
+    <dimen name="side_margin_child">16dp</dimen>
+    <dimen name="header_text_size">30sp</dimen>
+    <dimen name="location_viewer_titles">20sp</dimen>
+    <dimen name="longterm_color_height">12dp</dimen>
+    <dimen name="longterm_forecast_text_size_temperature">12sp</dimen>
+    <dimen name="longterm_forecast_wind_color_margin">2dp</dimen>
+    <dimen name="text_size_content">14sp</dimen>
+    <dimen name="header_size">30sp</dimen>
+
+
+</resources>

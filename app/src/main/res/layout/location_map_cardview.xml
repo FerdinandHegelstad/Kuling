@@ -1,0 +1,805 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.card.MaterialCardView
+    android:id="@+id/map_location_cardview"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="200dp"
+    android:clickable="true"
+    android:focusable="true"
+    app:cardElevation="6dp"
+    app:cardCornerRadius="0dp"
+    app:cardPreventCornerOverlap="false">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="3dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="130dp"
+            android:id="@+id/location_card_view_constraint_presentation"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_marginTop="@dimen/side_margin"
+                android:layout_width="wrap_content"
+                android:layout_height="90dp"
+                android:id="@+id/location_card_view_constraint_image"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="5dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:contentDescription="@string/card_view_location_image"
+                    android:layout_width="90dp"
+                    android:layout_height="90dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:id="@+id/location_cardview_favorite"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="200dp"
+                android:layout_height="match_parent"
+                android:id="@+id/location_card_view_constraint_presentation_text"
+                app:layout_constraintLeft_toRightOf="@+id/location_card_view_constraint_image"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="@dimen/side_margin">
+
+                <TextView
+                    android:gravity="center_vertical"
+                    android:layout_marginStart="7dp"
+                    android:id="@+id/location_cardview_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="10dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:scrollHorizontally="false"
+                    android:text="@string/location_viewer_activity_placeholder_location_name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="20sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/location_card_view_constraint_municipality"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginTop="5dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/location_cardview_name">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/location_card_view_icon_municipality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/ic_public_24px"
+                        android:tint="@color/colorBlue"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_marginStart="3dp"
+                        android:id="@+id/location_card_view_text_municipality"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito"
+
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/location_card_view_icon_municipality"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/location_card_view_constraint_distance"
+                    app:layout_constraintTop_toBottomOf="@id/location_card_view_constraint_municipality"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:layout_marginStart="5dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/location_card_view_icon_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:src="@drawable/ic_place_24px"
+                        android:tint="@color/colorBlue"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:layout_marginStart="3dp"
+                        android:id="@+id/location_card_view_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/nunito"
+
+                        android:textColor="@color/colorBlack"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/location_card_view_icon_distance"
+                        app:layout_constraintTop_toTopOf="parent"
+                        />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/location_card_view_constraint_favourite"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/location_card_view_constraint_presentation_text"
+                app:layout_constraintRight_toRightOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:id="@+id/location_map_cardview_close"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="#00000000"
+                    android:elevation="3dp"
+                    android:src="@drawable/ic_close_black_36dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <TextView
+                android:layout_marginStart="5dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:fontFamily="@font/nunito"
+                android:text="@string/location_cardview_today"
+                android:textSize="18sp"
+                android:id="@+id/location_card_view_today_text"/>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:id="@+id/location_card_view_constraint_text_info"
+                app:layout_constraintTop_toBottomOf="@+id/location_card_view_constraint_presentation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent">
+
+                <TextView
+                    android:textColor="@color/transparent"
+                    android:id="@+id/location_card_view_empty_text_field"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:paddingTop="4dp"
+                    android:textSize="12sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:gravity="center"/>
+
+                <TextView
+                    android:id="@+id/wind_speed"
+                    android:layout_width="wrap_content"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="@string/location_cardview_wind_speed"
+                    android:textSize="12sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/location_card_view_empty_text_field"
+                    app:layout_constraintBottom_toTopOf="@+id/wind_gusts"/>
+
+                <TextView
+                    android:id="@+id/wind_gusts"
+                    android:layout_width="wrap_content"
+                    android:layout_height="14dp"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="5dp"
+                    android:fontFamily="@font/lato_bold"
+                    android:text="@string/location_cardview_wind_gusts"
+                    android:textSize="12sp"
+                    android:layout_marginTop="2dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/wind_speed" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:id="@+id/location_card_view_constraint_weather_info"
+                app:layout_constraintTop_toBottomOf="@+id/location_card_view_constraint_presentation"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toRightOf="@+id/location_card_view_constraint_text_info"
+                >
+                <LinearLayout
+                    android:baselineAligned="false"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/location_card_view_linear_weather_info"
+                    android:layout_marginEnd="2dp"
+                    >
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:id="@+id/location_card_view_constraint_weather1"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="@+id/location_card_view_constraint_weather3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        >
+
+                        <TextView
+                            android:id="@+id/location_cardview_hour1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_bold"
+                            android:paddingTop="4dp"
+
+                            android:textSize="12sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:gravity="center"
+                            />
+
+                        <TextView
+
+                            android:id="@+id/location_cardview_wind1"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_hour1"
+                            />
+
+                        <TextView
+                            android:id="@+id/location_cardview_gust1"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_wind1"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/location_card_view_linear_symbol1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_gust1"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/location_cardview_weathersymbol1"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:foregroundGravity="center"
+                                android:layout_weight="1"
+                                android:src="@drawable/fair_day"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                />
+
+                            <TextView
+                                android:id="@+id/location_cardview_degrees1"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:gravity="center"
+
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/location_cardview_weathersymbol1"
+                                app:layout_constraintTop_toTopOf="parent"
+
+                                android:layout_weight="1"/>
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:paddingStart="3dp"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/location_card_view_constraint_weather2"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/location_card_view_constraint_weather1"
+                        app:layout_constraintEnd_toEndOf="@+id/location_card_view_constraint_weather3"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        tools:ignore="RtlSymmetry">
+
+                        <TextView
+                            android:id="@+id/location_cardview_hour2"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_bold"
+                            android:paddingTop="4dp"
+
+                            android:textSize="12sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_wind2"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_hour2" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_gust2"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_wind2"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/location_card_view_linear_symbol2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_gust2"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/location_cardview_weathersymbol2"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:foregroundGravity="center"
+                                android:layout_weight="1"
+                                android:src="@drawable/fair_day"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/location_cardview_degrees2"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:gravity="center"
+
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/location_cardview_weathersymbol2"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/location_card_view_constraint_weather3"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/location_card_view_constraint_weather2"
+                        app:layout_constraintEnd_toEndOf="@+id/location_card_view_constraint_weather4"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="3dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/location_cardview_hour3"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_bold"
+                            android:paddingTop="4dp"
+
+                            android:textSize="12sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_wind3"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_hour3" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_gust3"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_wind3"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"/>
+
+                        <LinearLayout
+                            android:id="@+id/location_card_view_linear_symbol3"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_gust3"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/location_cardview_weathersymbol3"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:foregroundGravity="center"
+                                android:layout_weight="1"
+                                android:src="@drawable/fair_day"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/location_cardview_degrees3"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:gravity="center"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/location_cardview_weathersymbol3"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_weight="1" />
+
+
+
+
+
+                        </LinearLayout>
+
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/location_card_view_constraint_weather4"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/location_card_view_constraint_weather3"
+                        app:layout_constraintEnd_toEndOf="@+id/location_card_view_constraint_weather5"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="3dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/location_cardview_hour4"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_bold"
+                            android:paddingTop="4dp"
+                            android:textSize="12sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:gravity="center"/>
+
+                        <TextView
+                            android:id="@+id/location_cardview_wind4"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="14sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_hour4"/>
+
+                        <TextView
+                            android:id="@+id/location_cardview_gust4"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_wind4"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/location_card_view_linear_symbol4"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_gust4"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/location_cardview_weathersymbol4"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:foregroundGravity="center"
+                                android:layout_weight="1"
+                                android:src="@drawable/fair_day"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/location_cardview_degrees4"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:gravity="center"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/location_cardview_weathersymbol4"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_weight="1" />
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/location_card_view_constraint_weather5"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/location_card_view_constraint_weather4"
+                        app:layout_constraintEnd_toEndOf="@+id/location_card_view_constraint_weather6"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="3dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/location_cardview_hour5"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_bold"
+                            android:paddingTop="4dp"
+                            android:textSize="12sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_wind5"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_hour5" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_gust5"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_wind5"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent" />
+
+                        <LinearLayout
+                            android:id="@+id/location_card_view_linear_symbol5"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_gust5"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/location_cardview_weathersymbol5"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:foregroundGravity="center"
+                                android:layout_weight="1"
+                                android:src="@drawable/fair_day"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/location_cardview_degrees5"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:gravity="center"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/location_cardview_weathersymbol5"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_weight="1"  />
+
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:id="@+id/location_card_view_constraint_weather6"
+                        android:layout_weight="1"
+                        app:layout_constraintStart_toEndOf="@+id/location_card_view_constraint_weather5"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        android:layout_marginStart="3dp"
+                        android:layout_marginEnd="3dp"
+                        >
+
+                        <TextView
+                            android:id="@+id/location_cardview_hour6"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/lato_bold"
+                            android:paddingTop="4dp"
+                            android:textSize="12sp"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:gravity="center" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_wind6"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_hour6" />
+
+                        <TextView
+                            android:id="@+id/location_cardview_gust6"
+                            android:layout_width="match_parent"
+                            android:layout_height="14dp"
+                            android:layout_marginTop="2dp"
+                            android:background="@color/colorWindGood"
+                            android:gravity="center"
+                            android:text=""
+                            android:textColor="@color/colorBlack"
+                            android:textSize="12sp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_wind6"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"  />
+
+                        <LinearLayout
+                            android:id="@+id/location_card_view_linear_symbol6"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            app:layout_constraintTop_toBottomOf="@+id/location_cardview_gust6"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:orientation="horizontal">
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/location_cardview_weathersymbol6"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:foregroundGravity="center"
+                                android:layout_weight="1"
+                                android:src="@drawable/fair_day"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:id="@+id/location_cardview_degrees6"
+                                android:layout_width="0dp"
+                                android:layout_height="17dp"
+                                android:fontFamily="@font/lato_bold"
+                                android:gravity="center"
+                                android:textSize="12sp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toEndOf="@+id/location_cardview_weathersymbol6"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:layout_weight="1" />
+
+                        </LinearLayout>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </LinearLayout>
+
+                <ProgressBar
+                    android:id="@+id/map_card_progressBar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:visibility="gone">
+                </ProgressBar>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</com.google.android.material.card.MaterialCardView>

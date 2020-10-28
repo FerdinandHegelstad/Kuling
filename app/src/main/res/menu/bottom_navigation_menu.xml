@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_explore"
+        android:title="@string/navigation_activity_bottom_bar_explore"
+        android:icon="@drawable/ic_explore_24px">
+    </item>
+    <item
+        android:id="@+id/menu_favourites"
+        android:title="@string/navigation_activity_bottom_bar_favourites"
+        android:icon="@drawable/ic_favorite_24px">
+    </item>
+    <item
+        android:id="@+id/menu_map"
+        android:title="@string/navigation_activity_bottom_bar_map"
+        android:icon="@drawable/ic_map_24px">
+    </item>
+    <item
+        android:id="@+id/menu_settings"
+        android:title="@string/navigation_activity_bottom_bar_settings"
+        android:icon="@drawable/ic_settings_24px">
+    </item>
+</menu>

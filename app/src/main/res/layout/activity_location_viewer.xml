@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activities.LocationViewerActivity"
+    android:fitsSystemWindows="true">
+
+<ScrollView
+    android:id="@+id/location_viewer_scroll_view"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/location_viewer_info_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toTopOf="@id/location_viewer_layout_fragment_container"
+            android:layout_margin="@dimen/side_margin"
+            android:paddingBottom="@dimen/side_margin">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/location_viewer_picture_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toStartOf="@+id/location_viewer_info_text_container"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/location_viewer_picture"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:src="@drawable/main_activity_img_background">
+
+                </de.hdodenhof.circleimageview.CircleImageView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/location_viewer_info_text_container"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                app:layout_constraintStart_toEndOf="@id/location_viewer_picture_container"
+                app:layout_constraintEnd_toStartOf="@+id/location_viewer_container_favorite_icon"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="8dp">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/location_viewer_activity_location_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato_bold"
+                    android:layout_marginStart="2dp"
+                    android:text="@string/location_viewer_activity_placeholder_location_name"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/location_viewer_titles"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </com.google.android.material.textview.MaterialTextView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/location_viewer_container_county"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/location_viewer_activity_location_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="6dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/location_viewer_county_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:src="@drawable/ic_public_24px"
+                        android:tint="@color/colorBlue"
+                        />
+
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/location_viewer_text_county"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/location_viewer_county_icon"
+                        android:layout_marginStart="3dp"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/location_viewer_container_distance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@+id/location_viewer_container_county"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="5dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/location_viewer_distance_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        android:src="@drawable/ic_place_24px"
+                        android:tint="@color/colorBlue"/>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/location_viewer_text_distance"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="3dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/location_viewer_distance_icon" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/location_viewer_container_favorite_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/location_viewer_favorite_icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:src="@drawable/ic_favorite_24px">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/location_viewer_layout_fragment_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/location_viewer_info_container">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/location_viewer_container_fragment_map"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_marginTop="@dimen/side_margin"
+                android:layout_marginStart="@dimen/side_margin"
+                android:layout_marginEnd="@dimen/side_margin"
+                android:layout_height="200dp"
+                app:layout_constraintTop_toTopOf="parent">
+            </androidx.fragment.app.FragmentContainerView>
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/location_viewer_map_north_indicator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                android:src="@drawable/ic_north_small"
+                android:visibility="gone">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/location_viewer_map_overlay"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="@dimen/side_margin"
+                android:layout_marginStart="@dimen/side_margin"
+                android:layout_marginEnd="@dimen/side_margin"
+                android:src="@color/transparent"
+                app:layout_constraintTop_toTopOf="parent">
+
+            </androidx.appcompat.widget.AppCompatImageView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/location_viewer_container_hour_forecast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/side_margin"
+            android:layout_marginEnd="@dimen/side_margin"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/location_viewer_layout_fragment_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            >
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layout_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TextView
+                    android:id="@+id/location_viewer_textview_hourbyhour_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="@string/location_viewer_activity_hour_forecast_title"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/location_viewer_titles"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="0dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"
+                android:id="@+id/location_viewer_view_hourbyhour_line"
+                app:layout_constraintTop_toBottomOf="@+id/layout_title" />
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/location_viewer_container_hourly_forecast"
+                android:layout_marginTop="@dimen/side_margin"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                app:layout_constraintTop_toBottomOf="@id/location_viewer_view_hourbyhour_line">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/location_viewer_layout_legend"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:paddingEnd="@dimen/side_margin"
+                    android:paddingStart="0dp">
+
+                    <TextView
+                        android:id="@+id/location_viewer_text_hour"
+                        android:layout_height="20dp"
+                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/location_viewer_activity_hour_text"
+                        android:textSize="12sp" />
+
+                    <TextView
+                        android:id="@+id/location_viewer_text_winddirection"
+                        android:layout_height="@dimen/hour_by_hour_size"
+                        android:layout_width="wrap_content"
+                        android:gravity="center"
+                        app:layout_constraintTop_toBottomOf="@+id/location_viewer_text_hour"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/location_viewer_activity_wind_direction_text"
+                        android:textSize="12sp"
+                    />
+
+                    <TextView
+                        android:id="@+id/location_viewer_text_windspeed"
+                        android:layout_height="@dimen/hour_by_hour_size"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/location_viewer_text_winddirection"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/location_viewer_activity_wind_speed_text"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                    />
+                    <TextView
+                        android:id="@+id/location_viewer_text_windgust"
+                        android:layout_height="@dimen/hour_by_hour_size"
+                        android:layout_width="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@id/location_viewer_text_windspeed"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:text="@string/location_viewer_activity_wind_gusts_text"
+                        android:gravity="center"
+                        android:textSize="12sp"
+                    />
+
+
+                  </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/location_viewer_layout_legend">
+
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:id="@+id/location_viewer_recycler_view"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent">
+
+                            </androidx.recyclerview.widget.RecyclerView>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <ProgressBar
+                        android:id="@+id/location_viewer_activity_progress_bar_hbh"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/location_viewer_longterm_forecast_main_container"
+            android:layout_marginStart="@dimen/side_margin"
+            android:layout_marginEnd="@dimen/side_margin"
+            android:layout_marginTop="16dp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            app:layout_constraintTop_toBottomOf="@id/location_viewer_container_hour_forecast"
+            android:clickable="true"
+            android:focusable="true">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/location_viewer_longterm_forecast_title_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                >
+
+                <TextView
+                    android:id="@+id/location_viewer_textview_longterm_forecast_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/location_viewer_titles"
+                    android:text="@string/location_viewer_activity_longterm_forecast_title"
+                    android:textColor="@color/colorBlack"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/location_viewer_longterm_forecast_expand"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/ic_expand_more_24px"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent">
+
+                </androidx.appcompat.widget.AppCompatImageView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#c0c0c0"
+                android:id="@+id/location_viewer_view_longterm_forecast_line"
+                app:layout_constraintTop_toBottomOf="@+id/location_viewer_longterm_forecast_title_container" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/location_viewer_longterm_forecast_container"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@id/location_viewer_longterm_forecast_main_container"
+            android:layout_marginStart="@dimen/side_margin"
+            android:layout_marginEnd="@dimen/side_margin"
+            android:visibility="gone">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/location_viewer_container_longterm_forecast_legend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp">
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/longTerm_day_container_legend"
+                    android:layout_width="85dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                     android:layout_width="0dp"
+                     android:layout_height="match_parent"
+                    app:layout_constraintStart_toEndOf="@id/longTerm_day_container_legend"
+                    app:layout_constraintEnd_toEndOf="parent">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/location_viewer_longterm_forecast_time_interval_one"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
+                    </com.google.android.material.textview.MaterialTextView>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/location_viewer_longterm_forecast_time_interval_two"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
+                    </com.google.android.material.textview.MaterialTextView>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/location_viewer_longterm_forecast_time_interval_three"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
+                    </com.google.android.material.textview.MaterialTextView>
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/location_viewer_longterm_forecast_time_interval_four"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textAlignment="center">
+                    </com.google.android.material.textview.MaterialTextView>
+
+                 </androidx.appcompat.widget.LinearLayoutCompat>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@id/location_viewer_container_longterm_forecast_legend">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/location_viewer_recycler_view_longterm_forecast"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            app:layout_constraintTop_toBottomOf="@id/location_viewer_longterm_forecast_main_container">
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/location_viewer_container_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/location_viewer_cardView_error"
+            app:cardBackgroundColor="@color/colorIndicatorRed"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:cardCornerRadius="0dp"
+            app:cardElevation="0dp"
+            android:visibility="invisible">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/location_viewer_text_error"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:text="@string/failed_weather_data_fetch_message"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorBlack"
+                    android:layout_marginStart="@dimen/side_margin">
+
+                </com.google.android.material.textview.MaterialTextView>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/location_viewer_button_retry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="@dimen/side_margin"
+                    android:text="@string/retry_button"
+                    android:textSize="16sp"
+                    android:textColor="@color/colorBlack"
+                    app:strokeColor="@color/transparent"
+
+                    style="@style/Widget.MaterialComponents.Button.OutlinedButton">
+
+                </com.google.android.material.button.MaterialButton>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+</RelativeLayout>
